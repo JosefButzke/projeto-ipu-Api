@@ -1,18 +1,17 @@
 import Sequelize, { Model } from "sequelize";
 
-class Papel extends Model {
+class Disciplina extends Model {
   static init(sequelize) {
     super.init(
       {
-        papel: Sequelize.STRING
+        nome: Sequelize.STRING
       },
       {
-        sequelize,
-        tableName: "papeis"
+        sequelize
       }
     );
     return this;
   }
 }
 
-export default Papel;
+export default Disciplina;

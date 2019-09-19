@@ -1,8 +1,8 @@
 import { Router } from "express";
-import Papel from "./app/models/Papel";
-import Professor from "./app/models/Professor";
-import ProfessorDisciplina from "./app/models/ProfessorDisciplina";
-import Usuario from "./app/models/Usuario";
+
+import PapelController from "./app/controllers/PapelController";
+import UsuarioController from "./app/controllers/UsuarioController";
+import DisciplinaController from "./app/controllers/DisciplinaController";
 
 const routes = new Router();
 
@@ -10,15 +10,11 @@ routes.get("/", (req, res) => {
   return res.json({ message: "Hello World" });
 });
 
-routes.get("/papeis", async (req, res) => {
-  const papeis = await Papel.findAll();
-  return res.json(papeis);
-});
+routes.post("/papeis", PapelController.store);
 
-routes.get("/usuario", async (req, res) => {
-  const professores = await Usuario.findAll();
-  return res.json(professores);
-});
+routes.post("/usuarios", UsuarioController.store);
+
+routes.post("/disciplinas", DisciplinaController.store);
 
 export default routes;
 
