@@ -1,8 +1,9 @@
 import { Router } from "express";
 
-import PapelController from "./app/controllers/PapelController";
 import UsuarioController from "./app/controllers/UsuarioController";
 import DisciplinaController from "./app/controllers/DisciplinaController";
+import ProfessorController from "./app/controllers/ProfessorController";
+import Professor_disciplinaController from "./app/controllers/Professor_disciplinaController";
 
 const routes = new Router();
 
@@ -10,11 +11,15 @@ routes.get("/", (req, res) => {
   return res.json({ message: "Hello World" });
 });
 
-routes.post("/papeis", PapelController.store);
-
 routes.post("/usuarios", UsuarioController.store);
 
+routes.post("/professores", ProfessorController.store);
+
+routes.get("/disciplinas", DisciplinaController.index);
+
 routes.post("/disciplinas", DisciplinaController.store);
+
+routes.post("/professordisciplina", Professor_disciplinaController.store);
 
 export default routes;
 

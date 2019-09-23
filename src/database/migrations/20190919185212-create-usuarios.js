@@ -12,6 +12,10 @@ module.exports = {
         allowNull: false,
         unique: true
       },
+      nome: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       password_hash: {
         type: Sequelize.STRING,
         allowNull: false
@@ -20,16 +24,6 @@ module.exports = {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
         allowNull: false
-      },
-      papel: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: "papeis",
-          key: "id"
-        },
-        onUpdate: "CASCADE",
-        onDelete: "SET NULL"
       },
       created_at: {
         type: Sequelize.DATE,

@@ -6,7 +6,8 @@ class Usuario extends Model {
       {
         matricula: Sequelize.INTEGER,
         password_hash: Sequelize.STRING,
-        status: Sequelize.BOOLEAN
+        status: Sequelize.BOOLEAN,
+        nome: Sequelize.STRING
       },
       {
         sequelize
@@ -14,11 +15,6 @@ class Usuario extends Model {
     );
 
     return this;
-  }
-  static associate(models) {
-    this.belongsTo(models.Papel, {
-      foreignKey: "papel"
-    });
   }
 }
 

@@ -1,15 +1,19 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("papeis", {
+    return queryInterface.createTable("professores", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-      papel: {
-        type: Sequelize.STRING,
-        allowNull: false
+      id_usuario: {
+        type: Sequelize.INTEGER,
+        references: { model: "usuarios", key: "id" },
+        allowNull: false,
+        unique: true,
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE"
       },
       created_at: {
         type: Sequelize.DATE,
@@ -23,6 +27,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable("papeis");
+    return queryInterface.dropTable("professores");
   }
 };

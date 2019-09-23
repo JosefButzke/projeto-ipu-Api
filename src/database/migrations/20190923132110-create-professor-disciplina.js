@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable("usuario_disciplinas", {
+    return queryInterface.createTable("professor_disciplina", {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -9,21 +9,15 @@ module.exports = {
       },
       id_usuario: {
         type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: "usuarios",
-          key: "id"
-        },
+        references: { model: "usuarios", key: "id" },
+        allowNull: false,
         onUpdate: "CASCADE",
         onDelete: "CASCADE"
       },
       id_disciplina: {
         type: Sequelize.INTEGER,
-        allowNull: true,
-        references: {
-          model: "disciplinas",
-          key: "id"
-        },
+        references: { model: "disciplinas", key: "id" },
+        allowNull: false,
         onUpdate: "CASCADE",
         onDelete: "CASCADE"
       },
@@ -39,6 +33,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.dropTable("usuario_disciplinas");
+    return queryInterface.dropTable("professor_disciplina");
   }
 };

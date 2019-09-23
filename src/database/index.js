@@ -4,8 +4,8 @@ import DatabaseConfig from "../config/database";
 
 import Usuario from "../app/models/Usuario";
 import Disciplina from "../app/models/Disciplina";
-import Papel from "../app/models/Papel";
-import UsuarioDisciplina from "../app/models/Usuario_disciplina";
+import Papel from "../app/models/Professor";
+import UsuarioDisciplina from "../app/models/Professor_disciplina";
 
 const models = [Usuario, Disciplina, UsuarioDisciplina, Papel];
 
